@@ -12,17 +12,14 @@ import tobysrping.config.MyAutoConfiguration;
 @MyAutoConfiguration
 @ConditionalMyOnClass("org.apache.catalina.startup.Tomcat")
 public class TomcatWebServerConfig {
-    @Value("${contextPath}")
-    String contextPath;
-
     @Bean("tomcatWebServerFactory")
     @ConditionalOnMissingBean
-    public ServletWebServerFactory serverWebServerFactory(Environment env) {
+    public ServletWebServerFactory serverWebServerFactory(ServerProperties properties) {
         TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
 
-        System.out.println("this.contextPath = " + this.contextPath);
-        
-        factory.setContextPath(this.contextPath);
+        factory.setContextPath(properties.getContextPath());
+        factory.setPort(properties.getPort());
+
         return factory;
     }
 }
