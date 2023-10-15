@@ -1,3 +1,4 @@
+tobysrping.config.autoconfig.PropertyPlaceholderConfig
 tobysrping.config.autoconfig.TomcatWebServerConfig
 tobysrping.config.autoconfig.JettyWebServerConfig
 tobysrping.config.autoconfig.DispatcherServletConfig
