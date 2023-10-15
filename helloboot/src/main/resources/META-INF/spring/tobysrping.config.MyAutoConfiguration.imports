@@ -1,3 +1,5 @@
+tobysrping.config.autoconfig.DataSourceConfig
+tobysrping.config.autoconfig.PropertyPostProcessorConfig
 tobysrping.config.autoconfig.PropertyPlaceholderConfig
 tobysrping.config.autoconfig.TomcatWebServerConfig
 tobysrping.config.autoconfig.JettyWebServerConfig
