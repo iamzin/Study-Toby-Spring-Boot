@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = HellobootApplication.class)
-@TestPropertySource("classpath:/application.properties")
+@HellobootTest
 public class DataSourceTest {
     @Autowired
     DataSource dataSource;
