@@ -5,14 +5,21 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import tobysrping.config.ConditionalMyOnClass;
+import tobysrping.config.EnableMyConfigurationProperties;
 import tobysrping.config.MyAutoConfiguration;
 
 @MyAutoConfiguration
 @ConditionalMyOnClass("org.apache.catalina.startup.Tomcat")
+@EnableMyConfigurationProperties(ServerProperties.class)
 public class TomcatWebServerConfig {
     @Bean("tomcatWebServerFactory")
     @ConditionalOnMissingBean
-    public ServletWebServerFactory serverWebServerFactory() {
-        return new TomcatServletWebServerFactory();
+    public ServletWebServerFactory serverWebServerFactory(ServerProperties properties) {
+        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
+
+        factory.setContextPath(properties.getContextPath());
+        factory.setPort(properties.getPort());
+
+        return factory;
     }
 }
