@@ -1,5 +1,8 @@
 package tobysrping.config.autoconfig;
 
+import tobysrping.config.MyConfigurationProperties;
+
+@MyConfigurationProperties(prefix = "server")
 public class ServerProperties {
     private String contextPath;
 
